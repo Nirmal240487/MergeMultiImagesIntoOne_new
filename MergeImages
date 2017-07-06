@@ -1,0 +1,12 @@
+-(UIImage *)blendImages:(NSMutableArray *)array{
+
+    UIImage *img=[array objectAtIndex:0];
+    CGSize size = img.size;
+    UIGraphicsBeginImageContext(size);
+
+     for (int i=0; i<array.count; i++) {
+        UIImage* uiimage = [array objectAtIndex:i];
+        [uiimage drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:1.0];
+     }
+     return UIGraphicsGetImageFromCurrentImageContext();
+}
